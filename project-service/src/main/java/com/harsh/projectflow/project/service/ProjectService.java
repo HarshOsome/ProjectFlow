@@ -84,7 +84,7 @@ public class ProjectService {
 
 		boolean userExists = userServiceClient.userExists(request.getUserId());
 		if (!userExists) {
-			throw new ProjectNotFoundException("User not found or User Service unavailable" + request.getUserId());
+			throw new ProjectNotFoundException("User not found or User Service unavailable " + request.getUserId());
 
 		}
 		if (projectMemberRepository.existsByProjectIdAndUserId(projectId, request.getUserId())) {
@@ -109,7 +109,7 @@ public class ProjectService {
 	}
 	
 	//DELETION------------ DXD
-	
+
 	public void deleteProject(Long id) {
 		if (!projectRepository.existsById(id)) {
 			throw new ProjectNotFoundException("Project not found with id " + id);
