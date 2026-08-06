@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.harsh.projectflow</groupId>
 	<artifactId>
-	project-service</artifactId>
+		project-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name />
 	<description />
@@ -32,8 +32,8 @@
 		<java.version>17</java.version>
 		<spring-cloud.version>2025.0.3</spring-cloud.version>
 	</properties>
- 
-<dependencyManagement>
+
+	<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
@@ -44,8 +44,8 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
- 
-<dependencies>
+
+	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -92,7 +92,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies> 
+	</dependencies>
 	<build>
 		<plugins>
 			<plugin>
