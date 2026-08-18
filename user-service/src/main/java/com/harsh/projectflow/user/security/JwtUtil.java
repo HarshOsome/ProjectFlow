@@ -22,33 +22,20 @@ public class JwtUtil {
 
 	private SecretKey getSigningKey() {
 		return Keys.hmacShaKeyFor(secret.getBytes()); // hologram stamp
-		
 		// convert it into HMAC -SHA2556 format. - cryptographic format.
-		
-		
 	}
-
-	public String generateToken(Long userId, String email, String role) {  // GENERATE A wrist band from this line of code
+	public String generateToken(Long userId, String email, String role) { // GENERATE A wrist band from this line of
+																			// code
 		Date now = new Date();
 		Date expiry = new Date(now.getTime() + expirationMs);
 
-		return  Jwts.builder() // making of the band
-					.subject(email)
-					.claim("userId", userId)
-					.claim("role", role)
-					.issuedAt(now)
-					.expiration(expiry)
-					.signWith(getSigningKey())
-					.compact();
-
+		return Jwts.builder() // making of the band
+				.subject(email).claim("userId", userId).claim("role", role).issuedAt(now).expiration(expiry)
+				.signWith(getSigningKey()).compact();
 	}
-
-	public Claims extractClaims(String token) {			// check if the code is valid or not.
-		return Jwts.parser() // checks if it's genuine.
-				.verifyWith(getSigningKey())
-				.build()
-				.parseSignedClaims(token)
-				.getPayload();
+	public Claims extractClaims(String token) { /*check if the code is valid or not.*/
+		return Jwts.parser() 										// checks if it's genuine.
+				.verifyWith(getSigningKey()).build().parseSignedClaims(token).getPayload();
 	}
 
 	public boolean isTokenValid(String token) { // since JWT might throw a lot exceptions..
